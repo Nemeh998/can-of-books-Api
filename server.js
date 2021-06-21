@@ -8,9 +8,7 @@ app.use(cors());
 const port = process.env.PORT|| 8081;
 
 
-app.listen(port, () => {
-    console.log(`server starrted on ${port}`)
-});
+
 app.get('/',homePage);
 function homePage(req,res){
 
@@ -23,4 +21,6 @@ app.get('/book',getUser);
 
 
 
-
+app.listen(port, () => {
+    console.log(`server starrted on ${port}`)
+});

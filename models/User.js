@@ -1,6 +1,6 @@
 // install mongoose
 const { response } = require('express');
-const mongoose=require('mongoose');
+
 // mongodb://127.0.0.1:27017/books
 // connicting  mongoose  whith localhost , our App connicted to express
 // books name of data base 
@@ -24,7 +24,7 @@ const User =mongoose.model('User',UserShhema);
 
 //instance frome the model frome the Object
 // //seeding data 
-// function bookCollection(){
+function bookCollection(){
 const nemh =new User({
    email:'nemh998@gmail.com' ,
    books:[
@@ -56,10 +56,10 @@ const hope =new User({
          status:'5 Star'
      }
     ]});
-    
+
 nemh.save();
 hope.save();
-// }
+}
 // bookCollection();
 // console.log(User);
 // console.log(hope);
