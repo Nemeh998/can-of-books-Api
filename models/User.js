@@ -5,7 +5,7 @@ const { response } = require('express');
 // connicting  mongoose  whith localhost , our App connicted to express
 // books name of data base 
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1:27017/books', {useNewUrlParser: true, useUnifiedTopology: true});
+mongoose.connect('mongodb://127.0.0.1:27017/mybook', {useNewUrlParser: true, useUnifiedTopology: true});
 // create schema its tamplite to drow our model
 const BookSchema = new  mongoose.Schema({
     name:String,
@@ -61,8 +61,10 @@ nemh.save();
 hope.save();
 }
 // bookCollection();
-// console.log(User);
-// console.log(hope);
+
+console.log(User);
+console.log(Book);
+
 
 
 
@@ -71,11 +73,22 @@ hope.save();
 
 function getUser(req,res){
     // response to make sure the send data
-    const { email } =req.query;
+    const email  =req.query.email;
+    console.log(email);
+    User.find({ email },(err,user) => {
 
-    User.find({ email:email },(err,user) => {
-if(err) res.send('didnt Work');
+if(err)
+{ res.send('didnt Work!!!');
+console.error(err);
+}
+
+// else{
 res.send(user[0].books);
+
+// res.send('Work');
+// console.log(user[0]);
+// }
+//http://localhost:8080/book?email=nemh998@gmail.com
 
 });
 }
