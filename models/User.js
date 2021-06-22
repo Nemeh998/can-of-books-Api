@@ -10,7 +10,8 @@ mongoose.connect('mongodb://127.0.0.1:27017/mybook', {useNewUrlParser: true, use
 const BookSchema = new  mongoose.Schema({
     name:String,
     description:String,
-    status:String
+    status:String,
+    // imageUrl:String
 });
 
 const UserShhema = new  mongoose.Schema({
@@ -26,17 +27,22 @@ const User =mongoose.model('User',UserShhema);
 // //seeding data 
 function bookCollection(){
 const nemh =new User({
-   email:'nemh998@gmail.com' ,
+   email:'nemh998@gmail.com' 
+   ,
    books:[
        {
            name:'Ottolenghi Simple',
            description :'Great On Kindle: A high quality digital reading experience.',
            status:'3 Star'
+        //    ,
+        //    imageUrl:"1"
        },
        {
         name:'Jacques Pépin Quick & Simple',
         description :'ore Than 125 Recipes for Instant, Overnight, Meal-Prepped, and Easy Comfort Foods: A Cookbook',
         status:'5 Star'
+        // ,
+        // imageUrl:"1"
     }
    ]
 
@@ -49,11 +55,15 @@ const hope =new User({
             name:'Flavcity s 5 Ingredient Meals',
             description :' 50 Easy & Tasty Recipes Using the Best Ingredients from the Grocery Store (Heart Healthy Budget Cooking)',
             status:'4  Star'
+            // ,
+            // imageUrl:"1"
         },
         {
          name:'5-Ingredient Cooking for Two: 100 Recipes Portioned for Pairs',
          description :'Great On Kindle: A high quality digital reading experience.',
          status:'5 Star'
+        //  ,
+        //  imageUrl:"1"
      }
     ]});
 
@@ -92,4 +102,4 @@ res.send(user[0].books);
 
 });
 }
-module.exports=getUser;
+module.exports={getUser,User};
