@@ -1,5 +1,5 @@
 // install mongoose
-const { response } = require('express');
+// const { response } = require('express');
 
 // mongodb://127.0.0.1:27017/books
 // connicting  mongoose  whith localhost , our App connicted to express
@@ -10,7 +10,7 @@ mongoose.connect('mongodb://127.0.0.1:27017/mybook', {useNewUrlParser: true, use
 const BookSchema = new  mongoose.Schema({
     name:String,
     description:String,
-    status:String,
+    status:String
     // imageUrl:String
 });
 
@@ -79,27 +79,6 @@ console.log(Book);
 
 
 
-// send data to front end 
 
-function getUser(req,res){
-    // response to make sure the send data
-    const email  =req.query.email;
-    console.log(email);
-    User.find({ email },(err,user) => {
 
-if(err)
-{ res.send('didnt Work!!!');
-console.error(err);
-}
-
-// else{
-res.send(user[0].books);
-
-// res.send('Work');
-// console.log(user[0]);
-// }
-//http://localhost:8080/book?email=nemh998@gmail.com
-
-});
-}
-module.exports={getUser,User};
+module.exports=User;
